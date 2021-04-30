@@ -1,6 +1,8 @@
-import PlayerScore from "./PlayerScore"
+import PlayerScore from "./PlayerScore";
+import SortButton from "./SortButton";
 
-const HighScoreTable = ({ allScores }) => {
+const HighScoreTable = ({ allScores, sort }) => {
+    console.log(sort, "pressed")
     return (
         allScores.sort((country1, country2) => {
             return country1.name.localeCompare(country2.name);
@@ -21,8 +23,10 @@ const HighScoreTable = ({ allScores }) => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {score.scores.sort((firstScore, secondScore) => {
+                                            {sort ? score.scores.sort((firstScore, secondScore) => {
                                                 return secondScore.s - firstScore.s;
+                                            }) : score.scores.sort((firstScore, secondScore) => {
+                                                return firstScore.s - secondScore.s;
                                             })
                                                 .map((score, index) => {
                                                     return <PlayerScore score={score}
