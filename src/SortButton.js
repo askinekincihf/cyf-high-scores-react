@@ -1,24 +1,18 @@
-import React, { useState } from "react";
-import HighScoreTable from "./HighScoreTable";
+import React from 'react';
 
-const SortButton = () => {
-    const [sort, setSort] = useState(false);
-
-    const handleSort = () => {
-        setSort(!sort);
-        console.log(sort, "button clicked");
-    }
-
+const SortButton = ({ handleSort, sortBy }) => {
     return (
-        <div className="d-grid gap-2 col-3 mx-auto mt-3">
-            <button
-                className="btn btn-primary"
-                onClick={handleSort}
-            >
-                Sort Scores
-        </button>
+        <div className='d-grid gap-2 col-4 mx-auto mt-3'>
+            <button className='btn btn-primary' onClick={handleSort}>
+                Sort Scores{' '}
+                {sortBy === 'ascending'
+                    ? 'UP'
+                    : sortBy === 'descending'
+                        ? 'DOWN'
+                        : null}
+            </button>
         </div>
-    )
-}
+    );
+};
 
 export default SortButton;
