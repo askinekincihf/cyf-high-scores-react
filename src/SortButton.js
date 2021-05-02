@@ -2,7 +2,7 @@ import React from 'react';
 
 const SortButton = ({ handleSort, sortBy }) => {
     return (
-        <div className='d-grid gap-2 col-4 mx-auto mt-3'>
+        <div className='d-grid gap-2 col-4 col-md-3 col-lg-2 mx-auto mt-3'>
             <button className='btn btn-primary' onClick={handleSort}>
                 Sort Scores{' '}
                 {sortBy === 'ascending'
